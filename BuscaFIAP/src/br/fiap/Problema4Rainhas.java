@@ -47,7 +47,26 @@ class EstadoRainhas implements Estado {
 	public int[] rainhas;
 	public EstadoRainhas(int r0, int r1, int r2, int r3) {
 		this.rainhas = new int[] {r0, r1, r2, r3};
-	}	
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(" _ _ _ _ \n");
+		sb.append("| | | | |\n");
+		sb.append(" - - - - \n");
+		sb.append("| | | | |\n");
+		sb.append(" - - - - \n");
+		sb.append("| | | | |\n");
+		sb.append(" - - - - \n");
+		sb.append("| | | | |\n");
+		sb.append(" - - - - \n");
+		
+		for (int i = 0; i<this.rainhas.length; i++) {
+			sb.setCharAt(10 + i*20 + 1 + this.rainhas[i]*2, 'X');
+		}
+		return sb.toString();
+	}
 }
 
 public class Problema4Rainhas implements Problema<EstadoRainhas> {
@@ -64,13 +83,10 @@ public class Problema4Rainhas implements Problema<EstadoRainhas> {
 		return a;
 	}
 
-
 	@Override
 	public double custo(EstadoRainhas estadoAtual, br.fiap.Problema.Acao acao) {
 		return 1.0;
 	}
-
-
 
 	@Override
 	public EstadoRainhas aplica(Acao a, EstadoRainhas atual) {
