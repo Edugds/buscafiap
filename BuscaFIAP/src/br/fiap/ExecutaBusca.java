@@ -6,8 +6,9 @@ public class ExecutaBusca {
 
 	public static void main(String[] args) {
 		
-		Busca<EstadoAspirador> busca = new Busca<EstadoAspirador>(new ProblemaAspirador()); 
-		busca.setEstadoInicial(new EstadoAspirador(true, true, false));
+		//Busca<EstadoAspirador> busca = new Busca<EstadoAspirador>(new ProblemaAspirador()); 
+		Busca<EstadoRainhas> busca = new Busca<EstadoRainhas>(new Problema4Rainhas()); 
+		busca.setEstadoInicial(new EstadoRainhas(0, 0, 0, 0));
 		busca.resolver();
 		
 		if(busca.getSolucao() == null) {
